@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://:www.thymeleaf.org" >
+<head>
+    <title>Places Search Box</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <style>
+
+        /*
+         Optional: Makes the sample page fill the window.
+         */
+        html,
+        body {
+            height: 50%;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        #infowindow-content .title {
+            font-weight: bold;
+        }
+
+
+        #map #infowindow-content {
+            display: inline;
+        }
+
+        .pac-card {
+            background-color: #fff;
+            border: 0;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            padding: 0 0.5em;
+            font: 400 18px Roboto, Arial, sans-serif;
+            overflow: hidden;
+            font-family: Roboto;
+            padding: 0;
+        }
+
+        #pac-container {
+            padding-bottom: 12px;
+            margin-right: 12px;
+        }
+
+        .pac-controls {
+            display: inline-block;
+            padding: 5px 11px;
+        }
+
+        .pac-controls label {
+            font-family: Roboto, cursive;
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        #pac-input {
+            background-color: #fff;
+            font-family: Roboto,cursive;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 400px;
+        }
+
+        #pac-input:focus {
+            border-color: floralwhite;
+        }
+
+
+        #map {
+
+            height: 100%;
+
+        }
+
+
+        h2 {
+            font-size: 1.5rem;
+            margin: 0 0 5px 0;
+            flex-grow: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            overflow-y: scroll;
+            flex-grow: 1;
+        }
+
+        li {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        li:nth-child(odd) {
+            background-color: #fcfcfc;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            flex-grow: 0;
+            cursor: pointer;
+            background: #1a73e8;
+            font-size: 1.5rem;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            color: #c5d4f0;
+        }
+
+        button:disabled {
+            background-color: #9fc1ee;
+            color: #c5d4f0;
+            cursor: auto;
+        }
+
+        img {
+            max-width: 40px;
+            height: 40px;
+        }
+
+        .card {
+            background: palegreen;
+            margin: 2px 4px;
+            display: flex;
+            flex-direction: row;
+            border: yellow solid 2px;
+
+        }
+
+    </style>
+</head>
+<body>
+<input id="pac-input" class="controls" type="text" placeholder="Search Box"/>
+<div id="map"></div>
+<div class="card" id="cards" ></div>
+
+<script th:inline="javascript">
+    const apiKey = /*[[${mapApiKey}]]*/ 'default';
+</script>
+<script th:src="@{/js/Map.js}" type="module"></script>
+
+
+
+</body>
+</html>

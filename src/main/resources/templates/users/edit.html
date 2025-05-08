@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+
+    <link rel="icon" type="image/x-icon" href="/imgs/clubs.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<style>
+    html body {
+        background: linear-gradient(green, blanchedalmond) no-repeat;
+        padding: 250px;
+    }
+  body {
+
+  }
+  .col-md-6 {
+    width: 50%;
+    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+    border-radius: 5px;
+    backdrop-filter: blur(50px);
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+  }
+
+    input[type="radio"] {
+        filter: hue-rotate(-0.25turn);
+    }
+
+</style>
+
+</head>
+<nav th:replace="~{partials/navbar.html :: navbar}"></nav><body>
+
+
+<form method = "POST" th:action="@{/users/{id}/edit (id = ${user.id})}" th:object="${user}">
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="mb-3">Edit Profile</h2>
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="name" th:field="*{name}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" class="form-control" id="username" th:field="*{username}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label"></label>
+                    <input type="hidden" class="form-control" id="password" th:field="*{password}" >
+                </div>
+
+                <!--        <div class="mb-3">-->
+                <!--          <label for="password" class="form-label">Password:</label> -->
+                <!-- <input type="hidden" class="form-control" id="password" th:field="*{password}" > -->
+                <!--        </div>-->
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                </div>
+                <div class="mb-3">
+
+                    <label id="is_18" for="is_18" class="form-label">Are you over 18 years old? (You are not required to be 18 to
+                        use this app.)</label>
+
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="age-yes" th:field="*{is_18}" value="true" required>
+                        <label class="form-check-label" for="age-yes">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="age-no" th:field="*{is_18}" value="false" required>
+                        <label class="form-check-label" for="age-no">No</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label id="is_org" for="is_org" class="form-label">Is this profile for an organization?</label>
+                    <div class="form-check">
+
+                        <input type="radio" class="form-check-input" id="org-yes" th:field="*{is_org}" value="true"
+                               required>
+                        <label class="form-check-label" for="org-yes">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="org-no" th:field="*{is_org}"  value="false"
+                               required>
+
+                        <label class="form-check-label" for="org-no">No</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="handicap" class="form-label">Handicap:</label>
+                        <input type="number" class="form-control" id="handicap" th:field="*{handicap}">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-success">Save Changes</button>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

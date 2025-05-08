@@ -1,0 +1,8 @@
+body {
+    background:  linear-gradient(blanchedalmond, green)no-repeat center center fixed;
+    background-size: cover;
+}
+.container {
+    position: center;
+    border: black solid 3px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Pals</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/imgs/clubs.png">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <style>
+        body{
+            /* Add padding due to fixed navbar position */
+            margin-top: 100px;
+            width: 100%;
+
+            background:  linear-gradient(blanchedalmond, green)no-repeat center center fixed;
+            background-size: cover;
+        }
+        .card {
+            box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+            backdrop-filter: blur(50px);
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            height: 70px;
+            width: 250px;
+        }
+        .cards.col-md-6 {
+            display: flex;
+            /*flex-wrap: wrap;*/
+            justify-content: space-between;
+
+        }
+
+    </style>
+
+</head>
+<nav th:replace="~{partials/navbar.html :: navbar}"></nav>
+<body>
+<h1 class="header text-center">Pals</h1>
+<div class="cards col-md-6">
+
+    <div th:each="pal : ${allPals}">
+        <br>
+        <br>
+        <div class="container">
+
+            <div class="card">
+                        <div class="card-title">
+                            <h2 class="card-title" th:text="${pal.getPal().getName()}"></h2>
+
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <div class="card-text">
+                                Username:
+                                <h5 th:text="${pal.getPal().getUsername()}"></h5>
+                                Email:
+                                <h5 th:text="${pal.getPal().getEmail()}">Email </h5>
+                                Handicap:
+                                <h5 th:text="${pal.getPal().getHandicap()}"></h5>
+                                <form th:action="@{/pals/{id}/remove (id = ${pal.id})}" th:method="post">
+                                    <button class="btn btn-outline-success btn-sm" style="position: relative; top: 10px; bottom: 0; right: 0; left: 90px ">
+                                        Delete
+                                    </button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.4/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.4/index.global.min.js'></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

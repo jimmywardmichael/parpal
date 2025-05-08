@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang='en'>
+<head>
+  <meta charset="UTF-8">
+  <title>Events Attending</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="icon" type="image/x-icon" href="/imgs/clubs.png">
+  <link rel="stylesheet" th:href="@{/css/index.css}">
+
+  <style>
+
+    .card-title{
+      width: 100%;
+    }
+
+    body{
+      /* Add padding due to fixed navbar position */
+      background: linear-gradient(green, blanchedalmond) center center fixed; !important ;
+      background-size: cover;
+
+      margin-top: 200px;
+    }
+    .card {
+      box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+      backdrop-filter: blur(50px);
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+      height: 90px;
+      width: 250px;
+    }
+    .cards.col-md-6 {
+      display: flex;
+      /*flex-wrap: wrap;*/
+      justify-content: space-between;
+
+    }
+  </style>
+</head>
+<body>
+<nav th:replace="~{partials/navbar.html :: navbar}"></nav>
+<h1 class="header text-center" style="padding-top: -20px">Attending Events</h1>
+<!--Events Start -->
+<div class="cards col-md-6">
+  <div th:each="userEvent : ${allUserEvents}">
+    <div class="container">
+
+      <div class="card">
+
+            <div class="card-title">
+              <h2 th:text="${userEvent.event.title}"></h2>
+            </div>
+          </div>
+            <div class="card-body">
+              <div class="card-text">
+                <h3 class="card-title" th:text="${userEvent.event.course}"></h3>
+                <strong>Date:</strong>
+                <p th:text="${userEvent.event.date_time_start.getMonth()} + ' ' + ${userEvent.event.date_time_start.getDayOfMonth()}"></p>
+                <strong>Start Time:</strong>
+                <p th:text="${userEvent.event.date_time_start.getHour()} + ':' + ${userEvent.event.date_time_start.getMinute()}"></p>
+                <strong>End Time: </strong>
+                <p th:text="${userEvent.event.date_time_end.getHour()} + ':' + ${userEvent.event.date_time_end.getMinute()}"></p>
+                <p th:text=" ${userEvent.event.description} "></p>
+                <form th:action="@{/userEvents/{eventId}/remove(eventId = ${userEvent.id})}" method="post">
+                  <input type="hidden" name="_method" value="delete"/>
+                  <button type="submit" class="btn btn-outline-success">Remove Event</button>
+                </form>
+              </div>
+            </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

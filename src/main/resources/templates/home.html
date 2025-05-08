@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<meta charset="UTF-8">
+<head>
+
+    <title>Welcome to Parpal</title>
+    <link rel="icon" type="image/x-icon" href="/imgs/clubs.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" th:href="@{css/home.css}">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fasthand&family=Libre+Baskerville:ital@1&family=Source+Serif+Pro:wght@200&display=swap');
+
+       body{
+           /* Add padding due to fixed navbar position */
+           margin-top: 75px;
+       }
+
+
+
+    </style>
+
+
+</head>
+
+<body>
+
+<nav th:replace="~{partials/navbar.html :: navbar}"></nav>
+    <h1 class="img-title" style=" text-align: center">
+        WELCOME TO OUR GOLF COMMUNITY!</h1>
+    <img src="../static/imgs/bg.jpg" th:src="@{/imgs/bg.jpg}" class="Home" alt="Home" height="700px"
+         width="100%">
+</div>
+    <div class="card-body" style=" display: flex; height: 200px; float: left; margin-bottom: 100px">
+    <h4 class="card-text" style="height: 300px; width: 70%; box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+    backdrop-filter: blur(50px); background-color: lightyellow; padding: 10px; font-family: Bebas Neue, cursive;     font-size: 40px;  margin-bottom: 40px;">
+        Welcome to Parpal, the ultimate destination for golfers to connect with one another, create unforgettable events and tournaments, and take your love of the game to the next level! Whether you're a seasoned pro or a beginner just starting out, Parpal is the perfect platform to meet like-minded individuals who share your passion for golf.
+    </h4>
+        <img src="https://static.vecteezy.com/system/resources/previews/002/685/251/original/silhouette-golf-player-on-a-white-background-illustration-vector.jpg" class="Home" alt="Home" style="display: inline-block; height: 300px; float: right; width: 30%">
+</div>
+
+<br>
+<div class="container">
+<form th:action="@{/home}" th:method="post">
+
+   <input id="pac-input" class="controls" type="text" placeholder="Search Box" style="width: 240px; height: 40px"/>
+
+    <div class="row">
+        <div id="map" class="col"></div>
+<br>
+<br>
+        <div class="card col d-flex flex-row flex-wrap scroll" style=" height: 620px"  id="cards">
+            <h3>
+                Search for "golf" here and see a list of the nearest golf courses below:
+            </h3>
+        </div>
+    </div>
+
+</form>
+</div>
+
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+<script th:inline="javascript">
+    const apiKey = /*[[${mapApiKey}]]*/ "default";
+</script>
+
+<script th:src="@{/js/map.js}" type="module"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+
+</html>

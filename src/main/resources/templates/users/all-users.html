@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Local Golfers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/imgs/clubs.png">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+
+    <style>
+
+
+        body {
+            /*background: url("https://scenicviewcc.com/wp-content/uploads/2022/11/Scenic-View-Country-Club_Home_Fullwidth-Introductory-Slideshow-Background-Image-1.jpg")  no-repeat center center fixed;*/
+            background-size: cover;
+            padding-top: 65px;
+
+        }
+
+
+        .cards {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+
+        .card {
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+    </style>
+
+</head>
+<nav th:replace="~{partials/navbar.html :: navbar}"></nav>
+<body>
+<br>
+<h1 class="header text-center">Golfers</h1>
+
+<div class="cards col-md-12">
+
+    <div th:each="users : ${allUsers}">
+        <div class="container">
+
+            <div class="card" style="height: fit-content">
+
+                <div class="card-title">
+                    <h3 class="card-title" th:text="${users.name}"></h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="card-text">
+                        <strong>Username:</strong>
+                        <h4 th:text="${users.username}"></h4>
+                        <strong>Email:</strong>
+                        <h5 th:text="${users.email}">Email </h5>
+                        <br>
+                        <strong>Handicap:</strong>
+                        <h5 th:text="${users.handicap}">Handicap</h5>
+                        <form th:action="@{/pals/{palId}/add (palId = ${users.id})}" th:method="post">
+                            <button class="btn btn-outline-success btn-md"
+                                    style="position: relative; top: 15px; bottom: 0; right: 0; left: 90px ">
+                                Add
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+</html>
+
+

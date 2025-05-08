@@ -1,0 +1,65 @@
+.form-control {
+    display: block;
+}
+body {
+    /*background: url("https://cdn.pixabay.com/photo/2018/01/22/16/41/pictogram-3099341_1280.jpg")  no-repeat center center fixed;*/
+    /*background-size: cover;;*/
+background: linear-gradient(blanchedalmond, green);
+}
+form {
+    text-align: center;
+}
+
+.form-label {
+    font-size: 20px;
+}
+
+/*h3{*/
+/*    font-family: "Lucida Grande", cursive;*/
+/*    margin-left: 20px;*/
+/*    color: white;*/
+/*}*/
+.card {
+
+    width: 200px;
+    box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
+    border-radius: 5px;
+    backdrop-filter: blur(50px);
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    text-align: center;
+    border: #E8DACD solid 6px;
+
+}
+.card-title {
+}
+
+.card-body {
+padding-top: 20px;
+    align-content: space-evenly;
+}
+
+h2.card.text-dark.text-center {
+    padding-left: 30px;
+
+}
+h4 {
+    text-decoration: yellow;
+    font-family: cursive;
+    font-style: italic;
+}
+.btn {
+    border: white solid 2px;
+    width: 220px;
+    height: 40px;
+}
+.login,
+.image {
+    min-height: 100vh;
+}
+
+.bg-image {
+    background-image: url('https://i.pinimg.com/originals/f2/56/fa/f256fa53f4a71faeafdc7d83ece05548.jpg');
+    background-size: cover;
+    background-position: center center;
+}
