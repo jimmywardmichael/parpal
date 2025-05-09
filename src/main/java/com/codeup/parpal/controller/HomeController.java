@@ -8,19 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HomeController {
-    @Value("${API_KEY}")
+    @Value("${MAPBOX_API_KEY}")
 
 
-    private String mapsKey;
-
-//    @GetMapping("/")
-//    public String home() {
-//        return "home";
-//    }
+    private String mapboxKey;
 
     @GetMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("mapApiKey", mapsKey);
+        model.addAttribute("mapBoxKey", mapboxKey);
         return "home";
     }
 
