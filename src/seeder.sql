@@ -47,19 +47,6 @@ INSERT INTO users (id, email, handicap, is_18, name, password, username, is_org)
 INSERT INTO users (id, email, handicap, is_18, name, password, username, is_org) VALUES (15, 'Tinacarlisle@gmail.com', 12, true, 'Tina Carlisle', '$2a$10$bfNTMcGx.0gfOV0BIPcu7OdrddLn8kanY0Txr0nPr6DmbXK3b08kC', 'tinacar', false);
 
 
-
-CREATE TABLE IF NOT EXISTS events (
-                                      id INT PRIMARY KEY AUTO_INCREMENT,
-                                      course VARCHAR(100) NOT NULL,
-                                      date_time_end VARCHAR(255),
-                                      date_time_start DATE,
-                                      description TEXT,
-                                      is_18 INT,
-                                      title VARCHAR(200),
-                                      host_id INT
-
-);
-
 INSERT INTO events (id, course, date_time_end, date_time_start, description, is_18, title, host_id) VALUES (1, 'Reverand Greeen Golf Club', '2023-03-17 07:22:00', '2023-03-17 11:22:00', 'Set in a rolling country side, the course traverses lake fronts, river edges and hills.', false, 'The Golden Gate Open', 1);
 
 INSERT INTO events (id, course, date_time_end, date_time_start, description, is_18, title, host_id) VALUES (2, ' The Grove XXIII ', '2023-03-18 07:33:00', '2023-03-18 11:33:00', 'Open, rugged and windswept terrain spotted with plenty of obstacles. Sculpted along two miles of Florida shoreline.', true, 'MJ\'s March Madness Celebration', 2);
@@ -68,7 +55,7 @@ INSERT INTO events (id, course, date_time_end, date_time_start, description, is_
 
 INSERT INTO events (id, course, date_time_end, date_time_start, description, is_18, title, host_id) VALUES (4, 'The Royal Ethalwind', '2023-03-21 08:25:00', '2023-03-21 12:25:00', 'A lush, parkland-style course with manicured fairways and fast greens. Water hazards come into play on nearly every hole, demanding accuracy and finesse.', true, 'The Royals Championship', 5);
 
-INSERT INTO events (id, course, date_time_end, date_time_start, description, is_18, title, host_id) VALUES (5, 'Vaquero Valley Golf Course', '2023-03-24 9:45:00', '2023-03-24 12:45:00', 'Fore! Get ready to tee off on Jordy\'s 21st birthday at Vaquero Valley Golf Course. Swing into a day of celebration with 18 holes of fun and festivities. The course is waiting, so don\'t be a bunker and join us for a round of drinks and a slice of cake. ', true, 'Jody\'s 21th Birthday Party', 6);
+INSERT INTO events (id, course, date_time_end, date_time_start, description, is_18, title, host_id) VALUES (5, 'Vaquero Valley Golf Course', '2023-03-24 09:45:00', '2023-03-24 12:45:00', 'Fore! Get ready to tee off on Jordy\'s 21st birthday at Vaquero Valley Golf Course. Swing into a day of celebration with 18 holes of fun and festivities. The course is waiting, so don\'t be a bunker and join us for a round of drinks and a slice of cake. ', true, 'Jody\'s 21th Birthday Party', 6);
 
 INSERT INTO events (id, course, date_time_end, date_time_start, description, is_18, title, host_id) VALUES (6, 'The Links at Nefyn', '2023-03-26 07:33:00', '2023-03-26 11:33:00', 'A links course on the rugged north coast of Wales. The front nine features rolling hills and views of the sea, while the back nine takes golfers through dunes and heathland.', true, 'The Welsh Open', 1);
 

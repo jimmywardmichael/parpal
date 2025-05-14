@@ -37,15 +37,10 @@ public class EventsDaoService {
         // Return only the events created by the logged-in user
         return eventsRepository.findByHost(loggedInUser);
     }
-    //    public List<Event> getAllEvents(){
-//        return eventsRepository.findAll();
-//    }
+
     public Event getEventById(long id) {
-        if (eventsRepository.findById(id).isPresent()) {
-            return eventsRepository.findById(id).get();
-        } else {
-            throw new RuntimeException("Event was not found.");
-        }
+        return eventsRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Event not found."));
     }
 //Edit
 

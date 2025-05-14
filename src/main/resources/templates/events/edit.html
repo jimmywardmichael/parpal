@@ -44,23 +44,23 @@
       <input type="hidden" th:field="*{id}" />
   <div class="form-group">
     <label for="title">Title:</label>
-    <input type="text" class="form-control" id="title" th:field="*{title}" />
+    <input type="text" class="form-control" id="title" th:field="*{title}" required />
   </div>
   <div class="form-group">
     <label for="course">Course:</label>
-    <input type="text" class="form-control" id="course" th:field="*{course}" />
+    <input type="text" class="form-control" id="course" th:field="*{course}" required/>
   </div>
   <div class="form-group">
     <label for="start">Start:</label>
-    <input type="datetime-local" class="form-control" id="start" th:field="*{date_time_start}" />
+    <input type="datetime-local" class="form-control" id="start" th:field="*{date_time_start}" required />
   </div>
   <div class="form-group">
     <label for="end">End:</label>
-    <input type="datetime-local" class="form-control" id="end" th:field="*{date_time_end}" />
+    <input type="datetime-local" class="form-control" id="end" th:field="*{date_time_end}" required />
   </div>
   <div class="form-group">
     <label for="description">Description:</label>
-    <textarea class="form-control" id="description" rows="3" th:field="*{description}"></textarea>
+    <textarea class="form-control" id="description" rows="3" th:field="*{description}" required></textarea>
   </div>
       <br>
   <button type="submit" class="btn btn-outline-success">Save</button>
